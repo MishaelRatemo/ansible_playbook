@@ -1,0 +1,22 @@
+---
+
+- hosts: all
+  become: yes
+  tasks:
+  - name: updating packages
+    apt:
+      update_cache: yes
+
+- hosts: web_servers
+  become: yes
+  tasks:
+  - name: installing apache
+    apt: 
+      name: 
+         - apache2
+         - libapache2-mod-php
+
+  - name: Copying html file for website
+    copy:
+       src: home.html
+       dest: /var/www/html/index.html
