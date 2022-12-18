@@ -3,7 +3,7 @@
   become: yes
 
   vars:
-    node_apps_location: /usr/local/opt/node
+    node_apps_location: /usr/bin/node
 
   tasks:
   - name: Ensure NTP (for time synchronization) is installed.
