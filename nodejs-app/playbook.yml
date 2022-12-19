@@ -2,7 +2,7 @@
 - hosts: all
   become: true
   vars:
-    node_apps_location: /usr/bin/node
+    node_apps_location: /usr/bin/opt/node
 
   pre_tasks:
   - name: Install EPEL repo.
@@ -39,5 +39,5 @@
     changed_when: false
 
   - name: Start example Node.js app.
-    command: "forever start {{ node_apps_location }}/app/app.js"
+    command: "/usr/local/bin/forever start {{ node_apps_location }}/app/app.js"
     when: "forever_list.stdout.find(node_apps_location + '/app/app.js') == -1"
