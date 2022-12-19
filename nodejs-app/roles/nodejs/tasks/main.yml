@@ -4,4 +4,4 @@
   yum: name=npm state=present enablerepo=epel
 
 - name: Install forever module ( to ru our Node.js app)
-  npm: name=forever global=yes statte=present
+  npm: name=forever global=yes state=present
