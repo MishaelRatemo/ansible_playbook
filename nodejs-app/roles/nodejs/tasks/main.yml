@@ -3,5 +3,6 @@
 - name: install Nodejs (npm + all its dependecies)
   yum: name=npm state=present enablerepo=epel
 
-- name: Install forever module ( to ru our Node.js app)
-  npm: name=forever global=yes state=present
+- name: Install npm modules required by our app.
+  npm: name={{ item }} global=yes state=present
+  with_items: "{{ node_npm_modules }}"
