@@ -10,3 +10,8 @@
        build:
          path: test
        state: present
+   - name: Ensure the test container is running.
+     docker_container:
+       image: test:latest
+       name: test
+       state: absent
